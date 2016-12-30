@@ -8,7 +8,10 @@
 package app;
 
 //imports
+import java.awt.Desktop;
 import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -37,13 +40,15 @@ public class Formatter extends javafx.application.Application {
 
 		//Elements
 		private Button btn = new Button( "Seleccionar fichero" );
+		private Hyperlink link_web = new Hyperlink();
 		private Text feedback = new Text(); //for show the feedbacks with the results
 		private Text label    = new Text(); //for show path to selected file
 		private Text input    = new Text(); //for show path to selected file
         
-        private final String VERSION = "0.1 - 28.12.2016";
-                
-                
+        private final String VERSION = "0.1.01 - 30.12.2016";
+		private final String AUTHOR  = "http://www.ironwoods.es";
+
+		
 	/**********************************/
 	/*** Methods declaration **********/
 
@@ -72,6 +77,25 @@ public class Formatter extends javafx.application.Application {
 
 			//Shows the stage
 			primaryStage.show();
+		}
+
+		/**
+		 * Opens a wep page in default browser
+		 *
+		 * @param	url
+		 */
+		private void openWepPage( String url ) {
+			//Trace.ln( "Events / openWepPage()" );
+			
+			try {
+				Desktop.getDesktop().browse(
+					new URI( url )
+				);
+
+			} catch ( URISyntaxException | IOException ex ) {
+
+				System.out.println( ex.toString( ));
+			}
 		}
 
 		/**
@@ -122,10 +146,16 @@ public class Formatter extends javafx.application.Application {
 			label.setFont(  
 				Font.font( "Tahoma", FontWeight.NORMAL, 15 ) 
 			);
+			link_web.setText( AUTHOR );
 			
 			//Button event
 			btn.setOnAction( e -> { 
 				process();
+			});
+			//Link event
+			link_web.setOnAction( e -> {
+				//Trace.ln( "This link is clicked" );
+				openWepPage( AUTHOR );
 			});
 
 			//Adds elements
@@ -133,7 +163,8 @@ public class Formatter extends javafx.application.Application {
 			layout.getChildren().add( input );
 			layout.getChildren().add( btn );
 			layout.getChildren().add( feedback );*/
-			layout.getChildren().addAll( 
+			layout.getChildren().addAll(
+				link_web,
 				label, 		//text
 				input, 		//text
 				btn,
