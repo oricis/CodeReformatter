@@ -11,10 +11,26 @@ public class FormatRules {
 	
 	public static final String[][] RULES = {
 		{
+			"=", " = "
+		},
+		//Deletes double spaces
+		{
+			"  ", " "
+		},
+		{
+			"= =", "=="
+		},
+		{
 			"==", " == "
 		},
 		{
 			"!=", " != "
+		},
+		{
+			"!", "! "
+		},
+		{
+			"! =", " !="
 		},
 		{
 			"(", "( "
@@ -35,10 +51,16 @@ public class FormatRules {
 			"( (", "(("
 		},
 		{
-			"()))", "( )))"
+			"( )", "()"
+		},
+		{
+			"())", "( ))"
 		},
 		{
 			"){", ") {"
+		},
+		{
+			"	 )", "	)"
 		},
 		{
 			"if(", "if ("
@@ -55,11 +77,17 @@ public class FormatRules {
 		{
 			"}else", "} else"
 		},
+                {
+			"}catch", "} catch"
+		},
 		{
 			"{", " {"
 		},
 		{
 			"+", " + "
+		},
+		{
+			"+ +", "++"
 		},
 		{
 			"*", " * "
@@ -71,7 +99,7 @@ public class FormatRules {
 			"->", " -> "
 		},
 		{
-			"- ->", "--> "
+			"- -", "--"
 		},
 		{
 			"}//", "} //"
@@ -80,12 +108,12 @@ public class FormatRules {
 			"}/*", "} /* "
 		},
 
-		//Delete double spaces
+		//Deletes double spaces
 		{
 			"  ", " "
 		},
 
-		//Delete spaces in the end of the line
+		//Deletes spaces in the end of the line
 		{
 			"{ ", "{"
 		},
@@ -97,7 +125,33 @@ public class FormatRules {
 		},
 		{
 			"( );", "();"
-		}
+		},
+		{
+			"( ).", "()."
+		},
+		{
+			"( ) ]", "() ]"
+		},
+
+		//Restores common groups
+		{
+			"( String )", "(String)"
+		},
+		{
+			"( int )", "(int)"
+		},
+		{
+			"( float )", "(float)"
+		},
+		{
+			"/ *", "/*"
+		},
+		{
+			"* /", "*/"
+		},
+		{
+			"* *", "**"
+		},
 	}; /**/
 
 	public static final String xxx = "xxx";
