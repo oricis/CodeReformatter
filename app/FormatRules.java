@@ -13,12 +13,13 @@ public class FormatRules {
 		{
 			"=", " = "
 		},
+                //Preserve indent
+		{
+                    "    ", "@@@@"
+		},
 		//Deletes double spaces
 		{
 			"  ", " "
-		},
-		{
-			"= =", "=="
 		},
 		{
 			"==", " == "
@@ -29,9 +30,7 @@ public class FormatRules {
 		{
 			"!", "! "
 		},
-		{
-			"! =", " !="
-		},
+
 		{
 			"(", "( "
 		},
@@ -43,12 +42,6 @@ public class FormatRules {
 		},
 		{
 			"  )", " )"
-		},
-		{
-			") )", "))"
-		},
-		{
-			"( (", "(("
 		},
 		{
 			"( )", "()"
@@ -87,19 +80,19 @@ public class FormatRules {
 			"+", " + "
 		},
 		{
-			"+ +", "++"
-		},
-		{
 			"*", " * "
+		},
+                {
+			"<", " < "
+		},
+                 {
+			">", " > "
 		},
 		{
 			",", ", "
 		},
 		{
 			"->", " -> "
-		},
-		{
-			"- -", "--"
 		},
 		{
 			"}//", "} //"
@@ -133,15 +126,38 @@ public class FormatRules {
 			"( ) ]", "() ]"
 		},
 
-		//Restores common groups
-		{
-			"( String )", "(String)"
-		},
-		{
-			"( int )", "(int)"
+		//Restores type conversions
+                {
+			"( double )", "(double)"
 		},
 		{
 			"( float )", "(float)"
+		},
+                {
+			"( int )", "(int)"
+		},
+                {
+			"( String )", "(String)"
+		},
+                
+                //Restores common groups
+                {
+			") )", "))"
+		},
+		{
+			"( (", "(("
+		},
+                {
+			"= =", "=="
+		},
+                {
+			"> =", ">="
+		},
+                {
+			"< =", "<="
+		},
+                {
+			"! =", "!="
 		},
 		{
 			"/ *", "/*"
@@ -151,6 +167,17 @@ public class FormatRules {
 		},
 		{
 			"* *", "**"
+		},
+                {
+			"+ +", "++"
+		},
+                {
+			"- -", "--"
+		},
+                
+                //Restore indent
+		{
+                    "@@@@", "    "
 		},
 	}; /**/
 
